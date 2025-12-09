@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: metroride-api:latest
+    container_name: metroride-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - JAVA_OPTS=-Xmx512m -Xms256m
+    networks:
+      - metroride-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  monitor:
+    image: busybox:latest
+    container_name: metroride-monitor
+    command: ping -c 1000 app
+    depends_on:
+      - app
+    networks:
+      - metroride-network
+    restart: unless-stopped
+
+networks:
+  metroride-network:
+    driver: bridge
+    name: metroride-network
