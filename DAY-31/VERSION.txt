@@ -1,0 +1,61 @@
+1.0.0
+
+================================================================================
+SEMANTIC VERSIONING EXPLANATION
+================================================================================
+
+This project follows Semantic Versioning (SemVer) specification.
+
+Version Format: MAJOR.MINOR.PATCH
+
+Current Version: 1.0.0
+- MAJOR: 1 (First stable release)
+- MINOR: 0 (Initial feature set)
+- PATCH: 0 (No patches yet)
+
+================================================================================
+VERSION INCREMENT RULES
+================================================================================
+
+When to increment MAJOR (e.g., 1.0.0 → 2.0.0):
+- Making incompatible API changes
+- Breaking changes that require client updates
+- Major architectural changes
+
+When to increment MINOR (e.g., 1.0.0 → 1.1.0):
+- Adding new features in a backward-compatible manner
+- Adding new API endpoints
+- Deprecating existing functionality (but not removing)
+
+When to increment PATCH (e.g., 1.0.0 → 1.0.1):
+- Bug fixes that don't affect the API
+- Performance improvements
+- Documentation updates
+
+================================================================================
+NEXT VERSION AFTER NEW FEATURE
+================================================================================
+
+If a NEW FEATURE is introduced (e.g., adding a new route planning endpoint):
+
+Current Version:  1.0.0
+Next Version:     1.1.0
+
+Explanation:
+- The MINOR version is incremented from 0 to 1
+- The PATCH version resets to 0
+- The MAJOR version remains unchanged
+
+This indicates:
+- New functionality has been added
+- Existing functionality remains backward-compatible
+- Users can safely upgrade without breaking their integrations
+
+================================================================================
+VERSION HISTORY
+================================================================================
+
+1.0.0 (Initial Release)
+- Basic metro station information API
+- Real-time metro timings endpoint
+- Health check endpoint

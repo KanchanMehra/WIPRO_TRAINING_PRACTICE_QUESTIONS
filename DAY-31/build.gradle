@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.metroride'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = '17'
+    targetCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Web Starter
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    
+    // Spring Boot Test Starter
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// Task to display build info
+tasks.register('buildInfo') {
+    doLast {
+        println "MetroRide API Build Information"
+        println "================================"
+        println "Group: ${project.group}"
+        println "Version: ${project.version}"
+        println "Java Version: ${java.sourceCompatibility}"
+    }
+}
